@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+    Docker
+{% endblock %}
+
+{% block titulo_card %}
+    <h5 classe="card-title">{{ container.imagem }}</h5>
+{% endblock %}
+
+{% block conteudo %}
+<div class="panel-body">
+    <ul class="list-group">
+        <li classe="list-group-item">ID: {{ container.id }}</li>
+    </ul>
+    <ul class="list-group">
+        <li classe="list-group-item">Nome: {{ container.nome }}</li>
+    </ul>
+    <ul class="list-group">
+        <li classe="list-group-item">Imagem: {{ container.imagem }}</li>
+    </ul>
+    <ul class="list-group">
+        <li classe="list-group-item">Status: {{ container.status }}</li>
+    </ul>
+
+    <div classe="row">
+        <div class="col-sm-12 text-center">
+            {% if container.status == 'running' %}
+                <a href='/docker/stop' class= "btnbtn-danger">Parar</a>
+                <a href='/docker/restart' class= "btnbtn-warning">Reiniciar</a>
+                {# <a href='/docker/ls' class= "btnbtn-primary">Executar Comando</a> #}
+            {% else %}
+                <a href='/docker/start' class= "btnbtn-success">Iniciar</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
