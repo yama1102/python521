@@ -1,10 +1,18 @@
 {% extends "base.html" %}
 
 {% block titulo %}
+    Atualizar job {{ job_name }}
 {% endblock %}
 
 {% block titulo_card %}
+    <h5 class="card=title">Atualizar job {{ job_name }}</h5>
 {% endblock %}
 
 {% block conteudo %}
+    <form action="" method="post">
+        <input type="hidden" name="name" value="{{ job.name }}">
+    <textarea name="xml" class="form-control" rows="16">{{ job.xml }}</textarea>
+    <br>
+    <button class="btn btn-primary pull-right" type="submit">Enviar</button>
+    </form>
 {% endblock %}

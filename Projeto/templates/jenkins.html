@@ -1,10 +1,41 @@
 {% extends "base.html" %}
 
 {% block titulo %}
+    Jenkins
 {% endblock %}
 
 {% block titulo_card %}
+<h5 class="card-title">Jenkins | Jobs</h5>
 {% endblock %}
 
 {% block conteudo %}
+<table class ="table table-bordered">
+    <thead>
+        <tr>
+            <tr>
+                <tr>Nome do job</tr>
+                <tr>Estado</tr>
+                <tr>Ações</tr>
+            </tr>
+        </tr>
+    </thead>
+    <tbody>
+        {% for job in jobs %}
+        <td>{{ job.fullName }}</td>
+        <td>
+            {% if not job.firstBuild %}
+            Nunca Fui construído
+            {% elif job.lastSuccessfulBuild.number == job.nextBuildNumber-1 %}
+            Sucesso
+            {% else %}
+            Falha
+            {% endif %}
+        </td>
+        <td>]
+            <a href= "/jenkins/build/{{ job.fullName }}"></a>
+            <a href= "/jenkins/update/{{ job.fullName }}"></a>
+        </td>
+        {% endfor %}}
+    </tbody>
+</table>
 {% endblock %}

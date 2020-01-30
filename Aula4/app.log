@@ -1,0 +1,8 @@
+[ 30/01/2020 15:48:01 ] { DEBUG ] root
+[<module>] [gerenciamento_logs.py, 14] Mensagem de debug
+[ 30/01/2020 15:57:06 ] { DEBUG ] root
+[<module>] [gerenciamento_logs.py, 14] Mensagem de debug
+[ 30/01/2020 16:00:23 ] { ERROR ] root
+[soma] [gerenciamento_logs.py, 21] Deu erro
+[ 30/01/2020 16:02:16 ] { INFO ] root
+[soma] [gerenciamento_logs.py, 19] Soma efetuada com sucesso
