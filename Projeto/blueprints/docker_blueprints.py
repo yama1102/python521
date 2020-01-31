@@ -11,6 +11,8 @@ docker_routes = flask.Blueprint(
 
 @docker_routes.route('/')
 def index():
+    if not 'logged' in flask.session or not flask.session['logged']:
+        return flask.redirect(flask.url_for('ldap.index'))
     try:
         client = docker.from_env()
         container = client.containers.get('065309a16a3c')
